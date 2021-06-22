@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Go to twilio.com/console and get your account SID and Auth Token. (create a free acocunt & get 10$ credit if you don't have one already)
 
-Things you may want to cover:
+Add them in your env under `TWILIO_ACCOUNT_SID` & `TWILIO_AUTH_TOKEN`.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Launch the server using `rails s`
