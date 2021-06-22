@@ -1,0 +1,5 @@
+<%= form_with url: "/verify", method: :post do |form| %>
+  <%= form.label :phone_number, "Please enter your phone number:" %>
+  <%= form.text_field :phone_number %>
+  <%= form.submit "validate your identity" %>
+<% end %>

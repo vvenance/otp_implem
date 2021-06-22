@@ -1,0 +1,6 @@
+<%= form_with url: "/validate_token", method: :post do |form| %>
+  <%= form.label :verification_code, "Please enter the code you received:" %>
+  <%= form.text_field :verification_code %>
+  <%= form.hidden_field :phone_number, :value => @phone_number %>
+  <%= form.submit "validate your identity" %>
+<% end %>
