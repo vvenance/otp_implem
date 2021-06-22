@@ -5,22 +5,22 @@ class TwilioController < ApplicationController
 
 	def verify
 		verification = $twilio_client.verify
-						.services($twilio_service.sid)
-						.verification
-						.create(to: params["phone_number"], channel: 'sms')
+                      .services($twilio_service.sid)
+                      .verifications
+                      .create(to: params["phone_number"], channel: 'sms')
 		@phone_number = params["phone_number"]
 	end
 
 	def validate_token
 		verification_check = $twilio_client.verify
-								.services($twilio_service.sid)
-								.verification_checks
-								.create(to: params["phone_number"], code: params["verification_code"])
+                            .services($twilio_service.sid)
+                            .verification_checks
+                            .create(to: params["phone_number"], code: params["verification_code"])
 
 		if verification_check.status == "approved"
-			redict_to action: "validated"
+			redirect_to action: "validated"
 		else
-			flash.alert = "Wrong code, try again"
+			flash.alert = "Wrong verification code, try again."
 			@phone_number = params["phone_number"]
 			render "verify"
 		end
